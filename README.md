@@ -1,4 +1,4 @@
-django-money
+django-cashflow
 ============
 
 Financial Control System using Django
