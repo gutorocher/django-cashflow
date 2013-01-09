@@ -1,0 +1,32 @@
+body {
+    padding-top: 60px;
+}
+
+.panel{
+        padding:3px;
+        background:#EEE;
+        border-radius:3px;
+}
+
+.panel span.name{
+        font-size:16px;
+        line-height:20px;
+        font-weight: bold;
+        padding:10px 10px;
+        color:#555;
+        text-shadow: 0 1px 0 white;
+        display:block;
+        border: 1px solid #CACACA;
+        border-bottom:0 none;
+        background-color:#AEAEAE;
+        background-image: -webkit-linear-gradient(#FAFAFA,#EAEAEA);
+        background-image: linear-gradient(#FAFAFA, #EAEAEA);
+        background-repeat:repeat-x;
+}
+
+.panel .content{
+        background-color:white;
+        border:1px solid #CACACA;
+        padding:30px;
+        display:block;
+}
