@@ -1,3 +1,4 @@
+{% load url from future %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +32,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="#">Dashboard</a></li>
-                        <li><a href="#">Entries</a></li>
+                        <li><a href="{% url 'entry_list' %}">Entries</a></li>
                         <li><a href="#">Banks</a></li>
                         <li><a href="#">Accounts</a></li>
                         <li><a href="#">People</a></li>
