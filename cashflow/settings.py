@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'cashflow',
     'money',
+    'bootstrapform',
 )
 
 # A sample logging configuration. The only tangible logging
