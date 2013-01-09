@@ -30,10 +30,17 @@ class Bank(IdentModel):
     def __unicode__(self):
         return self.name
 
+class Person(IdentModel):
+	name = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return self.name
+
 
 class Entry(IdentModel):
     account = models.ForeignKey(Account)
     bank = models.ForeignKey(Bank)
+    person = models.ForeignKey(Person)
     name = models.CharField(max_length=100)
     amount = models.FloatField()
     pay_date = models.DateField()
