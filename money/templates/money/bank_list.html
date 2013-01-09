@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block content %}
+<div class="panel">
+    <span class="name">Banks</span>
+    <div class="content">
+        <div class="pull-right"><a href="{% url 'entry_create' %}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Bank</a></div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Limit</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if not object_list %}
+                <tr>
+                    <td colspan="3">No registry.</td>
+                </tr>
+                {% for bank in object_list %}
+                <tr>
+                    <td>{{bank.name}}</td>
+                    <td>{{bank.limit}}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
