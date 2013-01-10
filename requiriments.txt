@@ -1,2 +1,5 @@
 Django==1.4
 django-bootstrap-form==2.0.5
+django-google-charts==0.1.1
+django-qsstats-magic==0.7.1
+python-dateutil==1.5

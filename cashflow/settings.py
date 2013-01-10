@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'cashflow',
     'money',
     'bootstrapform',
+    'googlecharts',
 )
 
 # A sample logging configuration. The only tangible logging

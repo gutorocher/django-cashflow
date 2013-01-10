@@ -1,0 +1,127 @@
+{% extends 'cashflow.html' %}
+{% load googlecharts %}
+{% load url from future %}
+{% load bootstrap %}
+
+{% block content %}
+
+{% googlecharts %}
+
+    {% data graph_01 "graph_01_data" %}
+        {% col "string" "Data" %}"{{ val }}"{% endcol %}
+        {% col "number" "Provided" %}{{ val }}{% endcol %}
+        {% col "number" "Realized" %}{{ val }}{% endcol %}
+    {% enddata %}
+
+    {% options "graph_01_options" %}
+        kind: "LineChart",
+        options: {
+            backgroundColor: "#f9f9f9",
+            gridlineColor: "#ddd",
+            vAxis: {minValue: 0},
+            title:"Provided x Realized",
+            pointSize:5,
+            {# curveType: "function",#}
+            chartArea:{left:40, top:40, width:600, height:250},
+            width: 750,
+            height: 300,
+        }
+    {% endoptions %}
+
+    {% graph "graph_01" "graph_01_data" "graph_01_options" %}
+
+{% endgooglecharts %}
+
+<div class="panel">
+    <span class="name">Dashboard</span>
+    <div class="content">
+        <div class="row">
+            <div class="span8">
+                <div id="graph_01"></div>
+            </div>
+            <div class="span3">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>A</th>
+                            <td><span class="pull-right">R$ 10.000,00</span></td>
+                        </tr>
+                        <tr>
+                            <th>B</th>
+                            <td><span class="pull-right">R$ 10.000,00</span></td>
+                        </tr>
+                        <tr>
+                            <th>C</th>
+                            <td><span class="pull-right">R$ 10.000,00</span></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Total:</th>
+                            <td><span class="pull-right"><strong>R$ 30.000,00</strong></span></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span11">
+                <h4>To Pay Today</h4>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">No registry.</td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span5">
+                <h4>Overdue</h4>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Pay Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">No registry.</td>
+                        </tr>
+                </table>
+            </div>
+            <div class="span6">
+                <h4>Next Balances</h4>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Inputs</th>
+                            <th>Outputs</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4">No registry.</td>
+                        </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

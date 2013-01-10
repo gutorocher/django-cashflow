@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': reverse_lazy('user_login')} ,name='user_logout'),
 
     #app
+    url (r'^dashboard$',views_money.DashBoard.as_view(), name='dashboard'),
     url(r'^entries$', views_money.EntryList.as_view(), name='entry_list'),
     url(r'^entries/create$', views_money.EntryCreate.as_view(), name='entry_create'),
 
