@@ -47,9 +47,9 @@ class Entry(IdentModel):
     name = models.CharField(max_length=100)
     amount = models.FloatField()
     pay_date = models.DateField()
-    paid_date = models.DateField()
-    doc = models.CharField(max_length=20)
-    status = models.CharField(max_length=1)
+    paid_date = models.DateField(blank=True, null=True)
+    doc = models.CharField(max_length=20, blank=True, null=True)
+    status = models.CharField(max_length=1, default=0)
 
     def __unicode__(self):
         return self.name
