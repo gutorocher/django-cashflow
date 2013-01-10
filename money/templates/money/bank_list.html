@@ -32,7 +32,7 @@
                         <tr>
                             <td>{{bank.name}}</td>
                             <td><span class="pull-right">{{bank.limit}}</span></td>
-                            <td><a href="{% url 'bank_edit' bank.pk %}" class="btn"><i class="icon-pencil"></i></a> <a href="#" class="btn"><i class="icon-trash"></i></a></td>
+                            <td><a href="{% url 'bank_edit' bank.pk %}" class="btn"><i class="icon-pencil"></i></a> <a href="{% url 'bank_delete' bank.pk %}" class="btn"><i class="icon-trash"></i></a></td>
                         </tr>
                         {% endfor %}
                     {% endif %}

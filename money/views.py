@@ -1,5 +1,5 @@
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, ModelFormMixin, ProcessFormView
+from django.views.generic.edit import CreateView, ModelFormMixin, ProcessFormView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from money.generic import ModelFormWithListView
 from money.models import Entry, Bank, Account, Person
@@ -16,6 +16,10 @@ class EntryCreate(CreateView):
 class BankList(ModelFormWithListView):
     model=Bank
     form_class=forms.BankForm
+    success_url = reverse_lazy('bank_list')
+
+class BankDelete(DeleteView):
+    model=Bank
     success_url = reverse_lazy('bank_list')
 
 class AccountList(ModelFormWithListView):

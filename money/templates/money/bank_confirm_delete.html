@@ -1,0 +1,18 @@
+{% extends 'cashflow.html' %}
+{% load bootstrap %}
+{% load url from future %}
+
+{% block content %}
+<div class="panel">
+    <span class="name">Delete bank?</span>
+    <div class="content">
+        <form action="" method="post">{% csrf_token %}
+            <p>Really want to <strong>delete</strong> this bank?</p>
+            <div class="form-actions">
+                <a href="{% url 'bank_list' %}" class="btn">No</a>
+                <button type="submit" class="btn btn-danger">Yes</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
