@@ -24,6 +24,7 @@
                 <tr>
                     <td colspan="8">No registry.</td>
                 </tr>
+            {% else %}
                 {% for entry in object_list %}
                 <tr>
                     <td>{{entry.created}}</td>
