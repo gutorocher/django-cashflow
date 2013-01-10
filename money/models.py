@@ -31,10 +31,12 @@ class Bank(IdentModel):
         return self.name
 
 class Person(IdentModel):
-	name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    doc = models.CharField(max_length=20)
+    status = models.BooleanField()
 
-	def __unicode__(self):
-		return self.name
+    def __unicode__(self):
+        return self.name
 
 
 class Entry(IdentModel):

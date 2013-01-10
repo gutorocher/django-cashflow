@@ -6,9 +6,13 @@ class EntryForm(forms.ModelForm):
         model = models.Entry
 
 class BankForm(forms.ModelForm):
-	class Meta:
-		model = models.Bank
+    class Meta:
+        model = models.Bank
 
 class AccountForm(forms.ModelForm):
-	class Meta:
-		model = models.Account
+    class Meta:
+        model = models.Account
+
+class PersonForm(forms.ModelForm):
+    class Meta:
+        model = models.Person
