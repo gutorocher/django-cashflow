@@ -1,9 +1,17 @@
 from django.conf.urls import patterns, include, url
+from django.core.urlresolvers import reverse_lazy
 from money import views as views_money
 
 urlpatterns = patterns('',
-    url(r'^$', views_money.EntryList.as_view(), name='entry_list'),
-    url(r'^entry/create$', views_money.EntryCreate.as_view(), name='entry_create'),
+
+    #auth
+    url(r'^$', 'django.contrib.auth.views.login', name='user_login'),
+    url(r'^login$', 'django.contrib.auth.views.login', name='user_login'),
+    url(r'^logout$', 'django.contrib.auth.views.logout', {'next_page': reverse_lazy('user_login')} ,name='user_logout'),
+
+    #app
+    url(r'^entries$', views_money.EntryList.as_view(), name='entry_list'),
+    url(r'^entries/create$', views_money.EntryCreate.as_view(), name='entry_create'),
 
     url(r'^banks/$', views_money.BankList.as_view(), name='bank_list'),
     url(r'^banks/edit/(?P<pk>\d+)$', views_money.BankList.as_view(), name='bank_edit'),

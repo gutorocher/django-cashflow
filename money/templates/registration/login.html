@@ -1,0 +1,17 @@
+{% extends 'cashflow.html' %}
+{% load url from future %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="panel">
+    <span class="name">Login</span>
+    <div class="content">
+        <form method="post" action="#">{% csrf_token %}
+            {{form|bootstrap}}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
