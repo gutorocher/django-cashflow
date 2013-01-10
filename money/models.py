@@ -34,6 +34,7 @@ class Person(IdentModel):
     name = models.CharField(max_length=100)
     doc = models.CharField(max_length=20)
     status = models.BooleanField()
+    default_account = models.ForeignKey(Account, blank=True, null=True)
 
     def __unicode__(self):
         return self.name
