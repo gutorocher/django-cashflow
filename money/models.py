@@ -16,7 +16,7 @@ class Account(IdentModel):
     )
 
     name = models.CharField(max_length=100)
-    parent = models.ForeignKey('self')
+    parent = models.ForeignKey('self', blank=True, null=True)
     type = models.CharField(max_length=1, choices=TYPE_CHOICES)
     status = models.BooleanField()
 

@@ -1,7 +1,8 @@
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, ModelFormMixin, ProcessFormView
 from django.core.urlresolvers import reverse_lazy
-from money.models import Entry, Bank
+from money.generic import ModelFormWithListView
+from money.models import Entry, Bank, Account
 from money import forms
 
 class EntryList(ListView):
@@ -39,6 +40,9 @@ class BankList(ListView, ModelFormMixin, ProcessFormView):
 			'object' : self.object
 		})
 
-		print kwargs
-
 		return super(BankList, self).get_context_data(**kwargs)
+
+class AccountList(ModelFormWithListView):
+	model=Account
+	form_class=forms.AccountForm
+	success_url = reverse_lazy('account_list')

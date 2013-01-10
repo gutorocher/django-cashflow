@@ -8,3 +8,7 @@ class EntryForm(forms.ModelForm):
 class BankForm(forms.ModelForm):
 	class Meta:
 		model = models.Bank
+
+class AccountForm(forms.ModelForm):
+	class Meta:
+		model = models.Account
