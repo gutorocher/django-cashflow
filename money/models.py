@@ -25,14 +25,14 @@ class Account(IdentModel):
 
 class Bank(IdentModel):
     name = models.CharField(max_length=100)
-    limit = models.FloatField()
+    limit = models.FloatField(default=0)
 
     def __unicode__(self):
         return self.name
 
 class Person(IdentModel):
     name = models.CharField(max_length=100)
-    doc = models.CharField(max_length=20)
+    doc = models.CharField(max_length=20,blank=True, null=True)
     status = models.BooleanField()
     default_account = models.ForeignKey(Account, blank=True, null=True)
 
