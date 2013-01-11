@@ -5,6 +5,10 @@ class EntryForm(forms.ModelForm):
     class Meta:
         exclude = ('user',)
         model = models.Entry
+        widgets={
+            'pay_date' : forms.TextInput(attrs={'class': 'datepicker'}),
+            'paid_date' : forms.TextInput(attrs={'class': 'datepicker'}),
+        }
 
 class BankForm(forms.ModelForm):
     class Meta:
