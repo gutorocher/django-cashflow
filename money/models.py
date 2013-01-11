@@ -49,6 +49,7 @@ class Entry(IdentModel):
     pay_date = models.DateField()
     paid_date = models.DateField(blank=True, null=True)
     doc = models.CharField(max_length=20, blank=True, null=True)
+    check = models.CharField(max_length=20, blank=True, null=True)
     status = models.CharField(max_length=1, default=0)
 
     def __unicode__(self):
