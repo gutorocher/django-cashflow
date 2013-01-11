@@ -1,6 +1,15 @@
 from django.views import generic
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required, permission_required
+from django.http import HttpResponseRedirect
+
+class IdentModelFormMixin(generic.edit.ModelFormMixin):
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class RestrictedListView(generic.ListView):
     ''' Generic list view that checks permissions '''
@@ -43,7 +52,7 @@ class LoginRequired(generic.View):
     def dispatch(self, request, *args, **kwargs):
         return super(LoginRequired, self).dispatch(request, *args, **kwargs)
 
-class ModelFormWithListView(RestrictedListView, generic.edit.ModelFormMixin, generic.edit.ProcessFormView):
+class ModelFormWithListView(RestrictedListView, IdentModelFormMixin, generic.edit.ProcessFormView):
 
     def post(self, request, *args, **kwargs):
         try:
