@@ -20,7 +20,7 @@ class RestrictedListView(generic.ListView):
             return super(RestrictedListView, self).dispatch(request, *args, **kwargs)
         return wrapper(request, *args, **kwargs)
 
-class RestrictedUpdateView(generic.UpdateView):
+class RestrictedUpdateView(generic.UpdateView, IdentModelFormMixin):
     ''' Generic update view that checks permissions '''
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
@@ -29,7 +29,7 @@ class RestrictedUpdateView(generic.UpdateView):
             return super(RestrictedUpdateView, self).dispatch(request, *args, **kwargs)
         return wrapper(request, *args, **kwargs)
 
-class RestrictedCreateView(generic.CreateView):
+class RestrictedCreateView(generic.CreateView, IdentModelFormMixin):
     ''' Generic create view that checks permissions '''
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
