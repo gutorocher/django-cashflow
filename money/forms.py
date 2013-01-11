@@ -1,13 +1,23 @@
 from django import forms
 from money import models
 
+# Inputs
+class DatepickerInput(forms.widgets.DateInput):
+
+    attrs = {'class' : 'datepicker'}
+
+    def __init__(self):
+        super(DatepickerInput,self).__init__(self.attrs)
+
+
+# Forms
 class EntryForm(forms.ModelForm):
     class Meta:
         exclude = ('user',)
         model = models.Entry
         widgets={
-            'pay_date' : forms.TextInput(attrs={'class': 'datepicker'}),
-            'paid_date' : forms.TextInput(attrs={'class': 'datepicker'}),
+            'pay_date' : DatepickerInput(),
+            'paid_date' : DatepickerInput(),
         }
 
 class BankForm(forms.ModelForm):
