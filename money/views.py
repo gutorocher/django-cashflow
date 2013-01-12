@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import FormMixin
 from django.core.urlresolvers import reverse_lazy
 from money import generic
+from money import settings
 from money.models import Entry, Bank, Account, Person
 from money import forms
 from money.utils import last_day_of_this_month
@@ -35,8 +36,8 @@ class EntryList(generic.RestrictedListView, FormMixin):
     def get(self, request, *args, **kwargs):
         today = datetime.today().date()
         if request.GET:
-            self.start_date = datetime.strptime(request.GET.get('start_date'), '%m/%d/%Y')
-            self.end_date = datetime.strptime(request.GET.get('end_date'), '%m/%d/%Y')
+            self.start_date = datetime.strptime(request.GET.get('start_date'), settings.DATE_FORMAT)
+            self.end_date = datetime.strptime(request.GET.get('end_date'), settings.DATE_FORMAT)
         else:
             self.start_date = today.replace(day=1)
             self.end_date = last_day_of_this_month(today)
@@ -49,8 +50,8 @@ class EntryList(generic.RestrictedListView, FormMixin):
 
     def get_initial(self):
         initial = super(EntryList, self).get_initial()
-        initial['start_date'] = datetime.strftime(self.start_date, '%m/%d/%Y')
-        initial['end_date'] = datetime.strftime(self.end_date, '%m/%d/%Y')
+        initial['start_date'] = datetime.strftime(self.start_date, settings.DATE_FORMAT)
+        initial['end_date'] = datetime.strftime(self.end_date, settings.DATE_FORMAT)
         return initial
 
     def get_context_data(self, **kwargs):
