@@ -34,3 +34,7 @@ class PersonForm(forms.ModelForm):
     class Meta:
         exclude = ('user',)
         model = models.Person
+
+class EntryFilterForm(forms.Form):
+    start_date = forms.CharField(max_length=20, widget=forms.widgets.TextInput(attrs={'class':'span2 datepicker'}))
+    end_date = forms.CharField(max_length=20, widget=forms.widgets.TextInput(attrs={'class':'span2 datepicker'}))

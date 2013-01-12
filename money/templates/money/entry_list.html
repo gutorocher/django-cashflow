@@ -3,8 +3,12 @@
 
 {% block content %}
 <div class="panel">
-    <span class="name">Entry List</span>
+    <span class="name">Entries</span>
     <div class="content">
+        <form class="well form-inline">
+            {{form}}
+            <button class="btn"><i class="icon-search"></i> Filter</button>
+        </form>
         <div class="pull-right"><a href="{% url 'entry_create' %}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Entry</a></div>
         <table class="table table-striped table-hover">
             <thead>
